@@ -22,4 +22,5 @@ jobs:
           script: |
                 whoami
                 ls -al
+                rsync -avz --exclude='.git/' --exclude='.github/' . ${{ secrets.REMOTE_PATH }}
                 
