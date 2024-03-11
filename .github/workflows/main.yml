@@ -20,7 +20,6 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-                whoami
-                ls -al
-                rsync -avz --exclude='.git/' --exclude='.github/' . ${{ secrets.REMOTE_PATH }}
-                
+                cd /var/www/html/Laravel8-php7.4
+                git pull origin branch
+                composer install
