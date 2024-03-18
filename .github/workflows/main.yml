@@ -1,4 +1,4 @@
-name: CICD 
+name: CICD
 
 on:
   push:
@@ -12,7 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      
       - name: multiple command
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -21,5 +20,5 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-                cd /var/www/html/Laravel8-php7.4
-                git pull origin main
+            cd /var/www/html/Laravel8-php7.4
+            git pull origin main
