@@ -23,7 +23,7 @@ jobs:
       - name: Log Docker version
         run: docker --version
 
-      - name: Execute multiple commands via SSH
+      - name: Deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
