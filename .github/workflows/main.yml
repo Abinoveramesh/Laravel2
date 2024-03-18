@@ -5,6 +5,7 @@ on:
     branches:
       - main
 
+
 jobs:
   deploy:
     name: Deploy 
@@ -14,6 +15,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy via SSH
-        run: |
-          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${{ secrets.PORT }} -i "${{ secrets.KEY }}" "${{ secrets.USERNAME }}@${{ secrets.HOST }}" 'cd /var/www/html/Laravel8-php7.4 && git pull origin main'
+      - name: Deploy
+        uses: actions/checkout@v2
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/html/Laravel8-php7.4
+            git pull origin main
