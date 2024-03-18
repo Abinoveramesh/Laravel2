@@ -11,6 +11,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
+
       
       - name: multiple command
         uses: appleboy/ssh-action@v1.0.3
