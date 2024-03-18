@@ -18,7 +18,6 @@ jobs:
 
       - name: Deploy
         run: |
-        with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
