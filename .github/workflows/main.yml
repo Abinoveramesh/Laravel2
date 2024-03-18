@@ -14,17 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Docker
-        if: runner.os == 'Linux' && runner.tool_cache.dockerversion != '20.10'
-        run: |
-          sudo apt-get update
-          sudo apt-get install docker.io -y
-
-      - name: Log Docker version
-        run: docker --version
-
       - name: Deploy
-        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
